@@ -6,22 +6,23 @@ import (
 	"sync"
 	"math/rand"
 	"time"
-	"github.com/fatih/color"
 	"io/ioutil"
 	"path/filepath"
 	"net/http"
 	"strings"
 	"log"
+	
+	"github.com/fatih/color"
 )
 
-type fnColors func(w io.Writer, format string, a ...interface{})
+type fnColor func(w io.Writer, format string, a ...interface{})
 
 type CarrotLive struct {
 	mutex  sync.RWMutex
 	Frames []string
 	index  int
 	
-	colors []fnColors
+	colors []fnColor
 }
 
 func init() {
@@ -30,7 +31,7 @@ func init() {
 
 func New(p string) (*CarrotLive, error) {
 	carrot := &CarrotLive{
-		colors: []fnColors{
+		colors: []fnColor{
 			color.New(color.FgRed).FprintfFunc(),
 			color.New(color.FgYellow).FprintfFunc(),
 			color.New(color.FgGreen).FprintfFunc(),
@@ -80,7 +81,7 @@ func (c *CarrotLive) NextFrame() string {
 
 func (c *CarrotLive) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 	if !strings.Contains(req.Header.Get("user-agent"), "curl") {
-		http.Redirect(rw, req, "https://github.com/hugomd/parrot.live", http.StatusFound)
+		io.WriteString(rw, "Use the curl to access this link.")
 		return
 	}
 	
