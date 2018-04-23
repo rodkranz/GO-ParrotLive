@@ -21,9 +21,7 @@ curl localhost:8080
 ```
 
 # :partyparrot:
-<div align="center">
-  <img src='https://d.pr/JI4PLv' />
-</div>
+![alt text](https://raw.githubusercontent.com/rodkranz/GO-ParrotLive/master/parrot.gif)
 
 
 
