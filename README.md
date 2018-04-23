@@ -22,7 +22,7 @@ curl localhost:8080
 
 # :partyparrot:
 <div align="center">
-  <img src='https://github.com/rodkranz/GO-ParrotLive/pattor.gif' />
+  <img src='https://d.pr/JI4PLv' />
 </div>
 
 
