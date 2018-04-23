@@ -29,5 +29,4 @@ curl localhost:8080
 * [cultofthepartyparrot.com](http://cultofthepartyparrot.com/)
 * [`terminal-parrot`](https://github.com/jmhobbs/terminal-parrot)
 * [`parrotsay`](https://github.com/matheuss/parrotsay)
-* [`parrotsay`](https://github.com/matheuss/parrotsay)
 * [`parrot.live`](https://github.com/hugomd/parrot.live)

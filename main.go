@@ -17,6 +17,7 @@ import (
 
 type fnColor func(w io.Writer, format string, a ...interface{})
 
+// CarrotLive struct server.
 type CarrotLive struct {
 	mutex  sync.RWMutex
 	Frames []string
@@ -29,6 +30,7 @@ func init() {
 	rand.Seed(time.Now().UTC().UnixNano())
 }
 
+// New return point of carrotLive struct
 func New(p string) (*CarrotLive, error) {
 	carrot := &CarrotLive{
 		colors: []fnColor{
@@ -67,7 +69,7 @@ func (c *CarrotLive) readFiles(p string) (error) {
 	return filepath.Walk(p, fnRead)
 }
 
-func (c *CarrotLive) NextFrame() string {
+func (c *CarrotLive) nextFrame() string {
 	defer c.mutex.RUnlock()
 	c.mutex.RLock()
 	c.index = c.index + 1
@@ -103,7 +105,7 @@ func (c *CarrotLive) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 		select {
 		case <-time.After(70 * time.Millisecond):
 			c.colors[rand.Intn(len(c.colors))](bufrw, "\033[2J\033[H")
-			c.colors[rand.Intn(len(c.colors))](bufrw, c.NextFrame())
+			c.colors[rand.Intn(len(c.colors))](bufrw, c.nextFrame())
 			c.colors[rand.Intn(len(c.colors))](bufrw, "\nWelcome PARROT LIVE Mother fucker!!!\n")
 			bufrw.Flush()
 		}
