@@ -1,0 +1,20 @@
+# Files
+*.db
+*.log
+*.exe
+*.exe~
+*.sublime-project
+*.sublime-workspace
+*.zip
+.DS_Store
+output*
+parrot.live
+
+# Folders
+data/
+.idea/
+vendor/
+log/
+profile/
+release/
+node_modules/
