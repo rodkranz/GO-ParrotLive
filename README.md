@@ -20,6 +20,13 @@ go run main.go
 curl localhost:8080
 ```
 
+# :partyparrot:
+<div align="center">
+  <img src='https://github.com/rodkranz/GO-ParrotLive/pattor.gif' />
+</div>
+
+
+
 # More Parrots
 * [cultofthepartyparrot.com](http://cultofthepartyparrot.com/)
 * [`terminal-parrot`](https://github.com/jmhobbs/terminal-parrot)
